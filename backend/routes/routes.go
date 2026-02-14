@@ -15,7 +15,13 @@ func SetupRoutes(app *fiber.App) {
 	auth.Post("/login", handlers.Login)
 	auth.Post("/change-password", middleware.Protected(), handlers.ChangePassword)
 
-	// Services (Protected)
-	// service := api.Group("/services", middleware.Protected())
-	// service.Get("/", handlers.GetAllServices)
+	// User Management (Protected)
+	userGroup := api.Group("/users", middleware.Protected())
+	userGroup.Get("/", handlers.ListUsers)
+	userGroup.Post("/", handlers.CreateUser)
+	userGroup.Get("/:id", handlers.GetUser)
+	userGroup.Put("/:id", handlers.UpdateUser)
+	userGroup.Delete("/:id", handlers.ArchiveUser)
+	userGroup.Post("/:id/restore", handlers.RestoreUser)
+	userGroup.Delete("/:id/permanent", handlers.DeleteUserPermanent)
 }

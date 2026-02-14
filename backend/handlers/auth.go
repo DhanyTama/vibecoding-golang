@@ -8,6 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+// Login handles user authentication and returns a JWT token
 func Login(c *fiber.Ctx) error {
 	type LoginInput struct {
 		Email    string `json:"email"`
@@ -35,6 +36,7 @@ func Login(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{"status": "success", "message": "Success login", "data": token})
 }
 
+// ChangePassword allows an authenticated user to update their password
 func ChangePassword(c *fiber.Ctx) error {
 	type ChangePasswordInput struct {
 		OldPassword string `json:"old_password"`
