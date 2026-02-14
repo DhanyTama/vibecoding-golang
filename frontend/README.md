@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Maulana Laundry - React Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern, high-performance Admin Dashboard and Landing Page for Maulana Laundry Management System.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Data Fetching**: [TanStack Table](https://tanstack.com/table/v8)
+- **Deployment**: [Railway](https://railway.app/) + Nginx
 
-## React Compiler
+## 🛠️ Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js 20 or higher
+- npm or pnpm
+- Git
 
-## Expanding the ESLint configuration
+## ⚙️ Setup & Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the Repository**
+    ```bash
+    git clone <repo-url>
+    cd frontend
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Configure Environment Variables**
+    Create a `.env` file in the `frontend` root:
+    ```bash
+    VITE_API_URL=http://localhost:8090/api
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Run in Development**
+    ```bash
+    npm run dev
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+5.  **Build for Production**
+    ```bash
+    npm run build
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📂 Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/components/`: Reusable UI components (Shadcn UI).
+- `src/lib/`: API client and utility functions.
+- `src/store/`: State management (Zustand).
+- `src/pages/`: Page-level components (Dashboard, Login).
+- `src/hooks/`: Custom React hooks.
+- `public/`: Static assets (Logos, Icons).
+
+## 🔑 Key Features
+
+- **Responsive Design**: Works perfectly on mobile and desktop.
+- **Admin Dashboard**: Comprehensive user management and interface.
+- **Data Management**: Advanced tables with sorting, filtering, and pagination.
+- **Visuals**: Premium aesthetics with smooth transitions and micro-animations.
+- **PWA Support**: Installable web application.
+
+## 📡 Backend Integration
+
+The frontend communicates with a Go Fiber backend. Ensure the backend is running and `VITE_API_URL` is correctly configured.

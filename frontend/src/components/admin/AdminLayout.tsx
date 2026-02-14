@@ -14,6 +14,7 @@ import { useAppStore } from '../../store/useAppStore';
 import { cn, Button, Card } from '../ui';
 import { Link, useNavigate } from 'react-router-dom';
 import { Profile } from './Profile';
+import { UserManagement } from './UserManagement';
 
 const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, component: 'DashboardContent' },
@@ -208,7 +209,7 @@ const DynamicComponent = ({ componentName }: { componentName: string }) => {
         case 'DashboardContent':
             return <DashboardPlaceholder />;
         case 'UserManagement':
-            return <Placeholder title="Manajemen Pelanggan" description="Kelola data pelanggan laundry Anda di sini." />;
+            return <UserManagement />;
         case 'Transactions':
             return <Placeholder title="Daftar Transaksi" description="Lihat dan proses pesanan laundry masuk." />;
         case 'Services':
